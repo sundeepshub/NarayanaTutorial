@@ -1,2 +1,0 @@
-# NarayanaTutorial
-NarayanaTutorial Landing page
