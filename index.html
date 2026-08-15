@@ -1715,16 +1715,37 @@ document.getElementById('enquiryForm').addEventListener('submit', async function
     const submitBtn = form.querySelector('button[type="submit"]');
     
     const googleScriptUrl = "https://script.google.com/macros/s/AKfycbzgRcI4h3nPTkg6Y_FtNyaN8011ZDp0kPuNb5alee5xIewQQEG_DQUM2Yqc_77lcsRe/exec";
-    const whatsappNumber = "919618328100"; // Replace with your 10-digit mobile number
+    const whatsappNumber = "91YOUR_PHONE_NUMBER"; // Replace with your actual 10-digit number
 
     if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.innerText = "Submitting...";
     }
 
-    const formData = new FormData(form);
-    const payload = Object.fromEntries(formData.entries());
-    payload.source = "Website Form";
+    // Explicitly grab field values by ID to guarantee data collection
+    const payload = {
+        source: "Website Form",
+        student_name: document.getElementById('student_name')?.value || "",
+        class_grade: document.getElementById('class_grade')?.value || "",
+        board: document.getElementById('board')?.value || "",
+        school_name: document.getElementById('school_name')?.value || "",
+        subjects: document.getElementById('subjects')?.value || "",
+        preferred_batch: document.getElementById('preferred_batch')?.value || "",
+        parent_name: document.getElementById('parent_name')?.value || "",
+        mobile_number: document.getElementById('mobile_number')?.value || "",
+        student_location: document.getElementById('student_location')?.value || "",
+        colony_area: document.getElementById('colony_area')?.value || "",
+        complete_address: document.getElementById('complete_address')?.value || "",
+        rating_reading: document.getElementById('rating_reading')?.value || "",
+        rating_writing: document.getElementById('rating_writing')?.value || "",
+        rating_learning: document.getElementById('rating_learning')?.value || "",
+        rating_listening: document.getElementById('rating_listening')?.value || "",
+        rating_understanding: document.getElementById('rating_understanding')?.value || "",
+        rating_participation: document.getElementById('rating_participation')?.value || "",
+        rating_punctuality: document.getElementById('rating_punctuality')?.value || "",
+        rating_discipline: document.getElementById('rating_discipline')?.value || "",
+        additional_info: document.getElementById('additional_info')?.value || ""
+    };
 
     const message = `*New Student Enquiry - Narayana Tutorial*
 ----------------------------------
@@ -1748,10 +1769,10 @@ document.getElementById('enquiryForm').addEventListener('submit', async function
 
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
 
-    // 1. Open WhatsApp tab immediately
+    // 1. Open WhatsApp tab
     window.open(whatsappUrl, '_blank');
 
-    // 2. Send payload to Google Sheets with keepalive enabled
+    // 2. Send full payload to Google Sheet
     try {
         await fetch(googleScriptUrl, {
             method: 'POST',
@@ -1761,10 +1782,10 @@ document.getElementById('enquiryForm').addEventListener('submit', async function
             keepalive: true
         });
     } catch (error) {
-        console.error('Google Sheet Network Error:', error);
+        console.error('Google Sheet Error:', error);
     }
 
-    // 3. Redirect main tab to Thank You page
+    // 3. Redirect to Thank You page
     window.location.href = "thank-you.html";
 });
 </script>
