@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You | Narayana Tutorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+    --navy: #07152f;
+    --blue: #0b4fd7;
+    --orange: #ff7200;
+    --gray: #667085;
+    --light: #f7faff;
+    --border: #e5eaf2;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at 50% 30%, rgba(20, 120, 255, 0.15), transparent 60%), #07152f;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #fff;
+}
+.brand-header {
+    margin-bottom: 24px;
+    text-align: center;
+}
+.brand-header img {
+    height: 50px;
+    width: auto;
+    border-radius: 8px;
+}
+.thankyou-card {
+    background: #ffffff;
+    color: #101828;
+    max-width: 520px;
+    width: 100%;
+    border-radius: 24px;
+    padding: 45px 35px;
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+}
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background: #eaf9f0;
+    color: #18b957;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 40px;
+    margin: 0 auto 24px;
+    box-shadow: 0 10px 20px rgba(24, 185, 87, 0.15);
+}
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    color: var(--navy);
+    margin-bottom: 12px;
+}
+p {
+    color: var(--gray);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+.call-badge {
+    background: #edf5ff;
+    border: 1px solid #cce2ff;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 28px;
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 14px;
+}
+.call-badge span {
+    display: block;
+    color: var(--blue);
+    font-size: 12px;
+    margin-top: 4px;
+}
+.btn-home {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--orange), #ff9800);
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    box-shadow: 0 10px 20px rgba(255, 114, 0, 0.25);
+    transition: transform 0.2s;
+}
+.btn-home:hover {
+    transform: translateY(-2px);
+}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1085500324166353');
+fbq('track', 'PageView');
+fbq('track', 'Lead');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1085500324166353&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<div class="brand-header">
+    <img src="Narayana_Tutorial_Final_Responsive_Logo_Updated.png" alt="Narayana Tutorial Logo" onerror="this.style.display='none';">
+</div>
+
+<div class="thankyou-card">
+    <div class="icon-circle">✓</div>
+    <h1>Thank You!</h1>
+    <p>Your enquiry has been successfully registered with <strong>Narayana Tutorial</strong>.</p>
+    
+    <div class="call-badge">
+        📞 We will call you shortly!
+        <span>Our team is reviewing your requirements and will reach out to discuss batch timings & details.</span>
+    </div>
+
+    <a href="./" class="btn-home">Back to Home</a>
+</div>
+
+</body>
+</html>
