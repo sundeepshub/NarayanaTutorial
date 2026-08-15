@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NARAYANA TUTORIAL | Classes 4th to 10th | SSC | CBSE | ICSE | Intermediate</title>
+<meta name="description" content="NARAYANA TUTORIAL provides personalized tuition for Classes 4th to 10th, SSC, CBSE, ICSE and Intermediate Maths, Physics & Accounts. 16+ years teaching experience. Morning and evening batches available in Deendayal Nagar, Old Safilguda, Neredmet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+    --navy:#07152f;
+    --blue:#0b4fd7;
+    --blue2:#1478ff;
+    --sky:#eaf4ff;
+    --orange:#ff7200;
+    --orange2:#ff9800;
+    --green:#18b957;
+    --dark:#101828;
+    --gray:#667085;
+    --light:#f7faff;
+    --white:#fff;
+    --border:#e5eaf2;
+    --shadow:0 15px 40px rgba(7,21,47,.10);
+    --radius:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--dark);background:#fff;line-height:1.6}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;line-height:1.2}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,92%);margin:auto}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-img{height:45px;width:auto;border-radius:8px;}
+.logo-icon{width:45px;height:45px;border-radius:14px;display:grid;place-items:center;color:#fff;font-size:22px;background:linear-gradient(135deg,var(--blue),#13a1ff);box-shadow:0 8px 20px rgba(11,79,215,.25)}
+.logo-text strong{display:block;font-size:18px;color:var(--navy)}
+.logo-text span{font-size:11px;color:var(--gray);font-weight:600}
+.nav-links{display:flex;align-items:center;gap:25px;font-size:14px;font-weight:700}
+.nav-links a:hover{color:var(--blue)}
+.nav-btn{background:var(--orange);color:#fff!important;padding:11px 18px;border-radius:10px;box-shadow:0 7px 18px rgba(255,114,0,.22)}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;color:#fff;padding:68px 0 78px;background:radial-gradient(circle at 85% 20%,rgba(35,139,255,.35),transparent 30%),linear-gradient(135deg,#06132d 0%,#092d68 55%,#075dd1 100%)}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:55px;align-items:center;position:relative;z-index:2}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:50px;font-size:12px;font-weight:800;margin-bottom:20px}
+.badge-dot{width:8px;height:8px;background:#42e37a;border-radius:50%}
+.hero h1{font-size:clamp(38px,5vw,65px);letter-spacing:-2px;margin-bottom:18px}
+.hero h1 span{color:#ffb347}
+.hero-sub{font-size:19px;color:#dceaff;max-width:650px;margin-bottom:23px}
+.hero-location{font-size:14px;color:#c9dcf5;font-weight:700;margin-bottom:22px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:28px}
+.hero-tags span{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);padding:7px 12px;border-radius:8px;font-size:12px;font-weight:800}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;cursor:pointer;padding:15px 22px;border-radius:12px;font-weight:800;font-size:14px;transition:.25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-orange{background:linear-gradient(135deg,var(--orange),var(--orange2));color:#fff;box-shadow:0 12px 25px rgba(255,114,0,.25)}
+.btn-white{background:#fff;color:var(--navy)}
+
+/* HERO CARD */
+.hero-card{background:#fff;color:var(--dark);border-radius:26px;padding:25px;box-shadow:0 30px 70px rgba(0,0,0,.25)}
+.hero-card-top{background:linear-gradient(135deg,#fff4a8 0%,#ffd91a 48%,#ffbf00 100%);border:1px solid #f0b900;border-radius:18px;padding:14px 14px 20px;margin-bottom:18px;text-align:center}
+.school-icon{font-size:40px;margin-bottom:4px}
+.hero-card h3{font-size:23px;color:#07152f}
+.hero-card-top p{color:var(--gray);font-size:12px;margin-top:5px}
+.quick-info{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.info-box{border:1px solid var(--border);border-radius:13px;padding:13px}
+.info-box strong{display:block;color:var(--blue);font-size:12px}
+.info-box span{display:block;color:var(--gray);font-size:10px;margin-top:3px}
+
+/* SECTIONS COMMON */
+.section{padding:80px 0}
+.section-light{background:var(--light)}
+.section-blue{background:linear-gradient(135deg,#07152f,#0b4fd7);color:#fff}
+.section-head{text-align:center;max-width:780px;margin:0 auto 45px}
+.section-label{color:var(--blue);text-transform:uppercase;letter-spacing:1.5px;font-size:11px;font-weight:900;margin-bottom:9px}
+.section-blue .section-label{color:#ffb347}
+.section-head h2{font-size:clamp(28px,4vw,42px);margin-bottom:12px}
+.section-head p{color:var(--gray);font-size:15px}
+.section-blue .section-head p{color:#d7e6ff}
+
+/* PROGRAM CARDS */
+.course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.course-card{position:relative;overflow:hidden;background:#fff;border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:var(--shadow)}
+.course-card:before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--blue),#31a4ff)}
+.course-card h3{margin:9px 0;font-size:20px}
+.course-card p{font-size:13px;color:var(--gray);min-height:62px}
+.course-tag{display:inline-block;background:#edf6ff;color:var(--blue);font-size:10px;font-weight:900;padding:6px 9px;border-radius:7px;margin-top:12px}
+
+/* ENQUIRY FORM */
+.form-section{background:radial-gradient(circle at 10% 20%,rgba(20,120,255,.25),transparent 30%),linear-gradient(135deg,#06132d,#0b4fd7);color:#fff}
+.form-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.form-content h2{font-size:40px;margin-bottom:15px}
+.form-content>p{color:#d4e4ff;font-size:14px;max-width:520px}
+.form-highlights{margin-top:25px;display:grid;gap:10px}
+.form-highlights div{font-size:13px}
+.location-box{margin-top:28px;padding:18px;border:1px solid rgba(255,255,255,.15);border-radius:15px;background:rgba(255,255,255,.07)}
+.location-box strong{color:#ffb347;display:block;margin-bottom:6px}
+.form-box{background:linear-gradient(145deg,#fff,#f6faff);color:var(--dark);padding:30px;border-radius:22px;box-shadow:0 30px 70px rgba(0,0,0,.25);max-width:620px}
+.form-box h3{font-size:25px;margin-bottom:5px}
+.form-box>p{font-size:13px;color:var(--gray);margin-bottom:18px;line-height:1.55}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
+.form-group{display:flex;flex-direction:column;margin-bottom:15px}
+.form-group label{font-size:13px;font-weight:800;margin-bottom:7px;line-height:1.3;min-height:20px}
+.form-group input,.form-group select,.form-group textarea{width:100%;border:1px solid #dce2ea;border-radius:10px;padding:12px 13px;outline:none;font-family:inherit;font-size:14px;background:#fff;min-height:46px;line-height:1.35}
+.form-group textarea{min-height:78px;resize:vertical}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(11,79,215,.08)}
+.rating-title{margin-top:25px;margin-bottom:8px;color:var(--navy);font-size:18px;font-weight:900;border-bottom:1px solid var(--border);padding-bottom:8px}
+.rating-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;align-items:stretch}
+.rating-item{display:flex;flex-direction:column;justify-content:space-between;background:#f7faff;padding:12px;border-radius:9px;border:1px solid #e1e8f2;min-height:88px}
+.rating-item label{font-size:12px!important;margin-bottom:7px!important;min-height:30px!important;line-height:1.25}
+.rating-item select{width:100%;min-height:42px;font-size:13px}
+.form-submit{width:100%;margin-top:15px;min-height:50px;font-size:15px}
+.form-note{text-align:center;font-size:11px;color:var(--gray);margin-top:10px}
+
+/* FOOTER */
+footer{background:#050d1c;color:#fff;padding:48px 0 35px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+footer h3{font-size:18px;margin-bottom:12px}
+footer p,footer li{color:#9fb0c8;font-size:12px}
+footer ul{list-style:none}
+footer li{margin-bottom:7px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:35px;padding-top:20px;text-align:center;color:#71829a;font-size:11px}
+
+@media(max-width:950px){
+    .hero-grid,.form-wrapper{grid-template-columns:1fr}
+    .course-grid{grid-template-columns:repeat(2,1fr)}
+    .footer-grid{grid-template-columns:1fr}
+}
+@media(max-width:650px){
+    .course-grid,.form-row,.rating-row{grid-template-columns:1fr}
+    .form-box{padding:22px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="container nav-inner">
+        <div class="logo">
+            <img src="Narayana_Tutorial_Final_Responsive_Logo_Updated.png" alt="Narayana Tutorial" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+            <div class="logo-icon" style="display:none;">NT</div>
+            <div class="logo-text">
+                <strong>NARAYANA TUTORIAL</strong>
+                <span>QUALITY EDUCATION</span>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="#courses">Courses</a>
+            <a href="#enquiry" class="nav-btn">Enquire Now</a>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="container hero-grid">
+        <div>
+            <div class="badge"><span class="badge-dot"></span> Admissions Open for Academic Year</div>
+            <h1>Expert Tuition for <span>Classes 4th to 10th</span> & Intermediate</h1>
+            <p class="hero-sub">Empowering students with strong concepts, personalized attention, and exam-oriented focus in Maths, Physics, and Accounts.</p>
+            <p class="hero-location">📍 Deendayal Nagar | Old Safilguda | Neredmet</p>
+            <div class="hero-tags">
+                <span>SSC</span>
+                <span>CBSE</span>
+                <span>ICSE</span>
+                <span>Intermediate</span>
+            </div>
+            <div class="hero-buttons">
+                <a href="#enquiry" class="btn btn-orange">Book Free Trial Class</a>
+            </div>
+        </div>
+        <div class="hero-card">
+            <div class="hero-card-top">
+                <div class="school-icon">🎓</div>
+                <h3>16+ Years Experience</h3>
+                <p>Proven track record of academic excellence & result-driven teaching.</p>
+            </div>
+            <div class="quick-info">
+                <div class="info-box">
+                    <strong>Small Batches</strong>
+                    <span>Personalized Attention</span>
+                </div>
+                <div class="info-box">
+                    <strong>Flexible Timings</strong>
+                    <span>Morning & Evening</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COURSES SECTION -->
+<section class="section section-light" id="courses">
+    <div class="container">
+        <div class="section-head">
+            <div class="section-label">Academic Programs</div>
+            <h2>Tailored Programs for Every Student</h2>
+            <p>Comprehensive subject coverage designed to build fundamentals and achieve high academic scores.</p>
+        </div>
+        <div class="course-grid">
+            <div class="course-card">
+                <h3>Classes 4th to 7th</h3>
+                <p>Focus on foundation building, conceptual clarity, reading, writing, and logical understanding.</p>
+                <span class="course-tag">All Subjects</span>
+            </div>
+            <div class="course-card">
+                <h3>Classes 8th to 10th</h3>
+                <p>Intensive preparation for Board exams (SSC, CBSE, ICSE) in Mathematics & Physical Sciences.</p>
+                <span class="course-tag">Maths & Science</span>
+            </div>
+            <div class="course-card">
+                <h3>Intermediate</h3>
+                <p>Specialized coaching for Intermediate students focusing on Mathematics, Physics, and Accountancy.</p>
+                <span class="course-tag">MPC / Commerce</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ENQUIRY SECTION -->
+<section class="section form-section" id="enquiry">
+    <div class="container form-wrapper">
+        <div class="form-content">
+            <div class="badge"><span class="badge-dot"></span> Admissions Open</div>
+            <h2>Get Started with Narayana Tutorial</h2>
+            <p>Fill out the enquiry form below for course details, batch availability, and personalized guidance for your child.</p>
+            <div class="form-highlights">
+                <div>✓ 16+ Years Experience in Quality Education</div>
+                <div>✓ Special Attention for SSC, CBSE, ICSE & Intermediate</div>
+                <div>✓ Morning & Evening Batches Available</div>
+            </div>
+            <div class="location-box">
+                <strong>Our Campus Location:</strong>
+                Deendayal Nagar, Old Safilguda, Neredmet.
+            </div>
+        </div>
+
+        <div class="form-box">
+            <h3>Student Enquiry Form</h3>
+            <p>Please complete all relevant information to help us understand the student's needs better.</p>
+            
+            <form id="enquiryForm" action="YOUR_GOOGLE_EXEC_URL" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="student_name">Student Name *</label>
+                        <input type="text" id="student_name" name="student_name" required placeholder="Enter student's name">
+                    </div>
+                    <div class="form-group">
+                        <label for="class_grade">Class / Grade *</label>
+                        <select id="class_grade" name="class_grade" required>
+                            <option value="">Select Class</option>
+                            <option value="4th">Class 4th</option>
+                            <option value="5th">Class 5th</option>
+                            <option value="6th">Class 6th</option>
+                            <option value="7th">Class 7th</option>
+                            <option value="8th">Class 8th</option>
+                            <option value="9th">Class 9th</option>
+                            <option value="10th">Class 10th</option>
+                            <option value="Intermediate">Intermediate</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="board">Board *</label>
+                        <select id="board" name="board" required>
+                            <option value="">Select Board</option>
+                            <option value="SSC">SSC</option>
+                            <option value="CBSE">CBSE</option>
+                            <option value="ICSE">ICSE</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="school_name">Current School Name</label>
+                        <input type="text" id="school_name" name="school_name" placeholder="Enter school name">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="subjects">Subject Required *</label>
+                        <input type="text" id="subjects" name="subjects" required placeholder="e.g. Maths, Physics, Accounts">
+                    </div>
+                    <div class="form-group">
+                        <label for="preferred_batch">Preferred Batch</label>
+                        <select id="preferred_batch" name="preferred_batch">
+                            <option value="Morning">Morning Batch</option>
+                            <option value="Evening">Evening Batch</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="parent_name">Parent / Guardian Name *</label>
+                        <input type="text" id="parent_name" name="parent_name" required placeholder="Enter parent's name">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile_number">Mobile Number *</label>
+                        <input type="tel" id="mobile_number" name="mobile_number" required pattern="[0-9]{10}" placeholder="10-digit mobile number">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="student_location">City / Location</label>
+                        <input type="text" id="student_location" name="student_location" placeholder="e.g. Hyderabad">
+                    </div>
+                    <div class="form-group">
+                        <label for="colony_area">Colony / Area</label>
+                        <input type="text" id="colony_area" name="colony_area" placeholder="e.g. Deendayal Nagar">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="complete_address">Complete Address</label>
+                    <textarea id="complete_address" name="complete_address" rows="2" placeholder="House no, Street, Landmark..."></textarea>
+                </div>
+
+                <div class="rating-title">Student Skill Self-Assessment</div>
+                <p style="color:var(--gray); font-size:12px; margin-bottom:12px;">Help us understand student capability ratings (1 = Needs Work, 5 = Excellent):</p>
+                
+                <div class="rating-row">
+                    <div class="rating-item">
+                        <label for="rating_reading">Reading Skill</label>
+                        <select id="rating_reading" name="rating_reading">
+                            <option value="3">3 - Average</option>
+                            <option value="1">1 - Needs Improvement</option>
+                            <option value="2">2 - Below Average</option>
+                            <option value="4">4 - Good</option>
+                            <option value="5">5 - Excellent</option>
+                        </select>
+                    </div>
+                    <div class="rating-item">
+                        <label for="rating_writing">Writing Skill</label>
+                        <select id="rating_writing" name="rating_writing">
+                            <option value="3">3 - Average</option>
+                            <option value="1">1 - Needs Improvement</option>
+                            <option value="2">2 - Below Average</option>
+                            <option value="4">4 - Good</option>
+                            <option value="5">5 - Excellent</option>
+                        </select>
+                    </div>
+                    <div class="rating-item">
+                        <label for="rating_learning">Learning Ability</label>
+                        <select id="rating_learning" name="rating_learning">
+                            <option value="3">3 - Average</option>
+                            <option value="1">1 - Needs Improvement</option>
+                            <option value="2">2 - Below Average</option>
+                            <option value="4">4 - Good</option>
+                            <option value="5">5 - Excellent</option>
+                        </select>
+                    </div>
+                    <div class="rating-item">
+                        <label for="rating_listening">Listening Ability</label>
+                        <select id="rating_listening" name="rating_listening">
+                            <option value="3">3 - Average</option>
+                            <option value="1">1 - Needs Improvement</option>
+                            <option value="2">2 - Below Average</option>
+                            <option value="4">4 - Good</option>
+                            <option value="5">5 - Excellent</option>
+                        </select>
+                    </div>
+                    <div class="rating-item">
+                        <label for="rating_understanding">Understanding Ability</label>
+                        <select id="rating_understanding" name="rating_understanding">
+                            <option value="3">3 - Average</option>
+                            <option value="1">1 - Needs Improvement</option>
+                            <option value="2">2 - Below Average</option>
+                            <option value="4">4 - Good</option>
+                            <option value="5">5 - Excellent</option>
+                        </select>
+                    </div>
+                    <div class="rating-item">
+                        <label for="rating_participation">Active Participation</label>
+                        <select id="rating_participation" name="rating_participation">
+                            <option value="3">3 - Average</option>
+                            <option value="1">1 - Needs Improvement</option>
+                            <option value="2">2 - Below Average</option>
+                            <option value="4">4 - Good</option>
+                            <option value="5">5 - Excellent</option>
+                        </select>
+                    </div>
+                    <div class="rating-item">
+                        <label for="rating_punctuality">Punctuality</label>
+                        <select id="rating_punctuality" name="rating_punctuality">
+                            <option value="3">3 - Average</option>
+                            <option value="1">1 - Needs Improvement</option>
+                            <option value="2">2 - Below Average</option>
+                            <option value="4">4 - Good</option>
+                            <option value="5">5 - Excellent</option>
+                        </select>
+                    </div>
+                    <div class="rating-item">
+                        <label for="rating_discipline">Discipline</label>
+                        <select id="rating_discipline" name="rating_discipline">
+                            <option value="3">3 - Average</option>
+                            <option value="1">1 - Needs Improvement</option>
+                            <option value="2">2 - Below Average</option>
+                            <option value="4">4 - Good</option>
+                            <option value="5">5 - Excellent</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top:15px;">
+                    <label for="additional_info">Additional Remarks / Information</label>
+                    <textarea id="additional_info" name="additional_info" rows="2" placeholder="Mention any specific areas where guidance is needed..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-orange form-submit">Submit Enquiry</button>
+                <p class="form-note">We respect your privacy. Your information is safe with us.</p>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container footer-grid">
+        <div>
+            <h3>Narayana Tutorial</h3>
+            <p>Quality coaching for Classes 4th to 10th and Intermediate. Helping students excel through individual guidance and proven teaching methodology.</p>
+        </div>
+        <div>
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#enquiry">Enquire Now</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Location</h3>
+            <p>Deendayal Nagar, Old Safilguda, Neredmet.</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© Narayana Tutorial. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+document.getElementById('enquiryForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Submitting...";
+
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+    payload.source = "Website Form";
+    payload.submissionType = "Online Enquiry";
+
+    try {
+        await fetch(form.action, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
+
+        window.location.href = "thank-you.html";
+    } catch (error) {
+        console.error('Submission Error:', error);
+        window.location.href = "thank-you.html";
+    }
+});
+</script>
+
+</body>
+</html>
