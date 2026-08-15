@@ -22,10 +22,20 @@ body {
     background: radial-gradient(circle at 50% 30%, rgba(20, 120, 255, 0.15), transparent 60%), #07152f;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px;
     color: #fff;
+}
+.brand-header {
+    margin-bottom: 24px;
+    text-align: center;
+}
+.brand-header img {
+    height: 50px;
+    width: auto;
+    border-radius: 8px;
 }
 .thankyou-card {
     background: #ffffff;
@@ -96,6 +106,10 @@ p {
 </head>
 <body>
 
+<div class="brand-header">
+    <img src="Narayana_Tutorial_Final_Responsive_Logo_Updated.png" alt="Narayana Tutorial Logo" onerror="this.style.display='none';">
+</div>
+
 <div class="thankyou-card">
     <div class="icon-circle">✓</div>
     <h1>Thank You!</h1>
@@ -106,7 +120,7 @@ p {
         <span>Our team is reviewing your requirements and will reach out to discuss batch timings & details.</span>
     </div>
 
-    <a href="index.html" class="btn-home">Back to Home</a>
+    <a href="./" class="btn-home">Back to Home</a>
 </div>
 
 </body>
