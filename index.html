@@ -1714,35 +1714,29 @@ document.getElementById('enquiryForm').addEventListener('submit', async function
     const form = e.target;
     const submitBtn = form.querySelector('button[type="submit"]');
     
-    // 1. Target Web App & WhatsApp Destination
     const googleScriptUrl = "https://script.google.com/macros/s/AKfycbzEYG8f0Umsd2lFvf5AnK6CHCi_F5LYEt-ok_YnWAaQ0ZbrDoqUFjKGcmf5dPNaTICjOg/exec";
-    const whatsappNumber = "919618328100"; // Replace with your 10-digit number (e.g. 919876543210)
+    const whatsappNumber = "91YOUR_PHONE_NUMBER"; // Put your 10-digit number here (e.g., 919876543210)
 
-    // 2. Button visual update
     if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.innerText = "Submitting...";
     }
 
-    // 3. Collect Payload Data
     const formData = new FormData(form);
     const payload = Object.fromEntries(formData.entries());
     payload.source = "Website Form";
-    payload.submissionType = "WhatsApp & Google Sheet";
 
-    // 4. Build Structured WhatsApp Message
     const message = `*New Student Enquiry - Narayana Tutorial*
 ----------------------------------
 *Student Name:* ${payload.student_name || 'N/A'}
 *Class / Grade:* ${payload.class_grade || 'N/A'}
 *Board:* ${payload.board || 'N/A'}
 *School:* ${payload.school_name || 'N/A'}
-*Subjects Required:* ${payload.subjects || 'N/A'}
-*Preferred Batch:* ${payload.preferred_batch || 'N/A'}
-
+*Subjects:* ${payload.subjects || 'N/A'}
+*Batch:* ${payload.preferred_batch || 'N/A'}
 *Parent Name:* ${payload.parent_name || 'N/A'}
-*Mobile Number:* ${payload.mobile_number || 'N/A'}
-*Area / Location:* ${payload.colony_area || 'N/A'}, ${payload.student_location || ''}
+*Mobile:* ${payload.mobile_number || 'N/A'}
+*Location:* ${payload.colony_area || 'N/A'}, ${payload.student_location || ''}
 *Address:* ${payload.complete_address || 'N/A'}
 
 *Skill Self-Assessment:*
@@ -1750,14 +1744,11 @@ document.getElementById('enquiryForm').addEventListener('submit', async function
 - Learning: ${payload.rating_learning}/5 | Listening: ${payload.rating_listening}/5
 - Understanding: ${payload.rating_understanding}/5 | Discipline: ${payload.rating_discipline}/5
 
-*Additional Remarks:* ${payload.additional_info || 'None'}`;
+*Remarks:* ${payload.additional_info || 'None'}`;
 
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
 
-    // 5. Trigger WhatsApp pre-filled chat in a new tab
-    window.open(whatsappUrl, '_blank');
-
-    // 6. Push data to Google Sheets via Google Apps Script endpoint
+    // 1. Save data to Google Sheet FIRST
     try {
         await fetch(googleScriptUrl, {
             method: 'POST',
@@ -1766,13 +1757,13 @@ document.getElementById('enquiryForm').addEventListener('submit', async function
             body: JSON.stringify(payload)
         });
     } catch (error) {
-        console.error('Google Sheet Network Error:', error);
-    } finally {
-        // 7. Redirect main browser window to Thank You page
-        window.location.href = "thank-you.html";
+        console.error('Google Sheet Error:', error);
     }
+
+    // 2. Open WhatsApp in new tab and redirect main tab to thank-you.html
+    window.open(whatsappUrl, '_blank');
+    window.location.href = "thank-you.html";
 });
 </script>
-
 </body>
 </html>
