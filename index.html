@@ -1708,12 +1708,13 @@ Please contact me regarding the tuition details.`;
     window.open(whatsappURL, "_blank");
 });
 </script>
-<script>
-document.getElementById('enquiryForm').addEventListener('submit', async function(e) {
+
+    document.getElementById('enquiryForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const form = e.target;
     const submitBtn = form.querySelector('button[type="submit"]');
     
+    // Make sure this matches your LATEST Web App URL from Step 2
     const googleScriptUrl = "https://script.google.com/macros/s/AKfycbzgRcI4h3nPTkg6Y_FtNyaN8011ZDp0kPuNb5alee5xIewQQEG_DQUM2Yqc_77lcsRe/exec";
     const whatsappNumber = "91YOUR_PHONE_NUMBER"; // Replace with your actual 10-digit number
 
@@ -1722,7 +1723,6 @@ document.getElementById('enquiryForm').addEventListener('submit', async function
         submitBtn.innerText = "Submitting...";
     }
 
-    // Explicitly grab field values by ID to guarantee data collection
     const payload = {
         source: "Website Form",
         student_name: document.getElementById('student_name')?.value || "",
@@ -1772,7 +1772,7 @@ document.getElementById('enquiryForm').addEventListener('submit', async function
     // 1. Open WhatsApp tab
     window.open(whatsappUrl, '_blank');
 
-    // 2. Send full payload to Google Sheet
+    // 2. Await the fetch request to guarantee completion before page redirect
     try {
         await fetch(googleScriptUrl, {
             method: 'POST',
@@ -1782,12 +1782,12 @@ document.getElementById('enquiryForm').addEventListener('submit', async function
             keepalive: true
         });
     } catch (error) {
-        console.error('Google Sheet Error:', error);
+        console.error('Google Sheet Network Error:', error);
     }
 
-    // 3. Redirect to Thank You page
+    // 3. Redirect to Thank You page AFTER fetch finishes
     window.location.href = "thank-you.html";
 });
-</script>
+    
 </body>
 </html>
