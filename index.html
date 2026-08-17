@@ -1621,7 +1621,7 @@ src="https://www.facebook.com/tr?id=1085500324166353&ev=PageView&noscript=1"
                         <textarea id="additional" name="Additional Information" rows="2" placeholder="Tell us about your child's learning requirements"></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-orange form-submit">🎯 SEND ENQUIRY ON WHATSAPP</button>
+                    <button type="submit" class="btn btn-orange form-submit">🎯 SUBMIT ENQUIRY</button>
                     <p class="form-note">Your information will be used only to contact you regarding the tuition enquiry.</p>
                 </form>
             </div>
@@ -1680,23 +1680,23 @@ src="https://www.facebook.com/tr?id=1085500324166353&ev=PageView&noscript=1"
 
 <script>
 /*
-  Add the actual WhatsApp number below in international format.
-  Example for an Indian number: 919876543210
+  WhatsApp number in international format.
+  Example for India: 919876543210
 */
 const PHONE_NUMBER = "919618328100";
 
+// Google Apps Script Web App URL
+const googleScriptUrl = "https://script.google.com/macros/s/AKfycbzgRcI4h3nPTkg6Y_FtNyaN8011ZDp0kPuNb5alee5xIewQQEG_DQUM2Yqc_77lcsRe/exec";
+
 document.getElementById('enquiryForm').addEventListener('submit', async function(e) {
     e.preventDefault();
+
     const form = e.target;
     const submitBtn = form.querySelector('button[type="submit"]');
-
-    // Make sure this matches your LATEST Web App URL from Step 2
-    const googleScriptUrl = "https://script.google.com/macros/s/AKfycbzgRcI4h3nPTkg6Y_FtNyaN8011ZDp0kPuNb5alee5xIewQQEG_DQUM2Yqc_77lcsRe/exec";
-
     const whatsappNumber = PHONE_NUMBER;
 
     if (!/^[0-9]{10,15}$/.test(whatsappNumber.replace(/\D/g, ""))) {
-        alert("Please update PHONE_NUMBER in the HTML before using the WhatsApp enquiry button.");
+        alert("Please update PHONE_NUMBER in the HTML before using the enquiry form.");
         return;
     }
 
@@ -1708,7 +1708,6 @@ document.getElementById('enquiryForm').addEventListener('submit', async function
     const getVal = id => document.getElementById(id)?.value.trim() || "";
     const getByName = name => document.querySelector(`[name="${name}"]`)?.value.trim() || "";
 
-    // IDs below match the actual field IDs in the form above.
     const payload = {
         source: "Website Form",
         parent_name: getVal('parentName'),
@@ -1748,32 +1747,61 @@ document.getElementById('enquiryForm').addEventListener('submit', async function
 *Address:* ${payload.complete_address || 'N/A'}
 
 *Skill Self-Assessment:*
-- Reading: ${payload.rating_reading}/5 | Writing: ${payload.rating_writing}/5
-- Learning: ${payload.rating_learning}/5 | Listening: ${payload.rating_listening}/5
-- Understanding: ${payload.rating_understanding}/5 | Discipline: ${payload.rating_discipline}/5
+- Reading: ${payload.rating_reading || 'N/A'} | Writing: ${payload.rating_writing || 'N/A'}
+- Learning: ${payload.rating_learning || 'N/A'} | Listening: ${payload.rating_listening || 'N/A'}
+- Understanding: ${payload.rating_understanding || 'N/A'} | Discipline: ${payload.rating_discipline || 'N/A'}
 
 *Remarks:* ${payload.additional_info || 'None'}`;
 
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
+    const whatsappUrl =
+        `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
 
-    // 1. Open WhatsApp tab
+    // Keep the existing WhatsApp functionality.
     window.open(whatsappUrl, '_blank');
 
-    // 2. Await the fetch request to guarantee completion before page redirect
     try {
+        /*
+          Keep the existing Google Apps Script/no-cors setup.
+          The response body cannot be read cross-origin, but the request
+          is completed before the page redirects.
+        */
         await fetch(googleScriptUrl, {
             method: 'POST',
             mode: 'no-cors',
-            headers: { 'Content-Type': 'text/plain' },
+            headers: {
+                'Content-Type': 'text/plain'
+            },
             body: JSON.stringify(payload),
             keepalive: true
         });
-    } catch (error) {
-        console.error('Google Sheet Network Error:', error);
-    }
 
-    // 3. Redirect to Thank You page AFTER fetch finishes
-    window.location.href = "thank-you.html";
+        /*
+          IMPORTANT:
+          Lead is fired here, not on thank-you.html.
+          Therefore opening/reloading thank-you.html will not create
+          another Meta Lead.
+        */
+        if (typeof fbq === 'function') {
+            fbq('track', 'Lead');
+        }
+
+        sessionStorage.setItem('narayana_enquiry_submitted', '1');
+
+        window.location.href = "thank-you.html";
+
+    } catch (error) {
+        console.error('Google Sheet submission error:', error);
+
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerText = "🎯 SUBMIT ENQUIRY";
+        }
+
+        alert(
+            "We could not complete the enquiry submission. " +
+            "Please try again. If the problem continues, contact Narayana Tutorial."
+        );
+    }
 });
 </script>
 </body>
