@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/jpeg" href="/Logo.jpeg">
-<link rel="stylesheet" href="css/design-tokens.css">
+<link rel="stylesheet" href="/css/design-tokens.css">
 
 <title>NARAYANA TUTORIAL | Classes 4th to 10th | SSC | CBSE | ICSE | Intermediate</title>
 
@@ -322,17 +322,137 @@ footer li{margin-bottom:7px}
 .form-group textarea{min-height:78px;resize:vertical}
 .rating-title{font-size:18px;margin-top:25px}
 .form-box .rating-title + p{font-size:12px}
-.rating-row{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
-.rating-item{display:flex;flex-direction:column;justify-content:space-between;min-height:88px;padding:12px}
-.rating-item label{font-size:12px!important;line-height:1.25;min-height:30px!important;margin-bottom:7px!important}
-.rating-item select{width:100%;min-height:42px;font-size:13px}
-.form-submit{min-height:50px;font-size:15px}
+.parent-assessment-grid,
+.rating-row{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:14px!important;
+    align-items:stretch!important;
+    width:100%!important;
+    margin-top:12px!important;
+    margin-bottom:14px!important;
+    box-sizing:border-box!important;
+    min-width:0!important;
+}
+.parent-assessment-card,
+.rating-item{
+    background:#f7faff!important;
+    border:1px solid #e1e8f2!important;
+    border-radius:10px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:space-between!important;
+    min-height:92px!important;
+    padding:12px!important;
+    min-width:0!important;
+    width:100%!important;
+    box-sizing:border-box!important;
+    transition:border-color .2s ease,box-shadow .2s ease,background-color .2s ease!important;
+}
+.parent-assessment-card:hover,
+.rating-item:hover{
+    border-color:#cbd8ec!important;
+}
+.parent-assessment-card.field-error,
+.rating-item.field-error,
+.form-group.field-error{
+    border-color:#e53e3e!important;
+    background-color:#fff5f5!important;
+    box-shadow:0 0 0 3px rgba(229,62,62,.15)!important;
+}
+.parent-assessment-card label,
+.rating-item label{
+    font-size:13px!important;
+    font-weight:600!important;
+    color:var(--navy)!important;
+    line-height:1.35!important;
+    min-height:28px!important;
+    margin-bottom:8px!important;
+    display:block!important;
+    white-space:normal!important;
+    word-break:break-word!important;
+}
+.required-star{
+    color:#e53e3e!important;
+    font-weight:700!important;
+    margin-left:2px!important;
+}
+.parent-assessment-card select,
+.rating-item select{
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    min-height:44px!important;
+    font-size:13px!important;
+    line-height:1.4!important;
+    padding:8px 12px!important;
+    border:1px solid #cfd9e8!important;
+    border-radius:8px!important;
+    background-color:#ffffff!important;
+    color:#101828!important;
+    box-sizing:border-box!important;
+    cursor:pointer!important;
+    transition:border-color .2s ease,box-shadow .2s ease!important;
+}
+.parent-assessment-card select:focus,
+.rating-item select:focus{
+    border-color:var(--blue)!important;
+    box-shadow:0 0 0 3px rgba(11,79,215,.15)!important;
+    outline:none!important;
+}
+.field-error-input{
+    border-color:#e53e3e!important;
+}
+.additional-info-group textarea{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    min-height:84px!important;
+    box-sizing:border-box!important;
+    font-size:14px!important;
+    line-height:1.5!important;
+    padding:10px 12px!important;
+    border-radius:8px!important;
+    border:1px solid #cfd9e8!important;
+    resize:vertical!important;
+}
+.enquiry-validation-alert{
+    background:#fff5f5;
+    border:1px solid #feb2b2;
+    border-left:4px solid #e53e3e;
+    color:#9b2c2c;
+    padding:12px 14px;
+    border-radius:8px;
+    font-size:13px;
+    line-height:1.45;
+    margin-top:14px;
+    margin-bottom:12px;
+}
+.enquiry-validation-alert strong{
+    display:block;
+    font-weight:700;
+    margin-bottom:4px;
+}
+.enquiry-validation-alert ul{
+    margin:6px 0 0 18px;
+    padding:0;
+}
+.enquiry-validation-alert li{
+    margin-bottom:2px;
+}
+.form-submit{min-height:50px;font-size:15px;width:100%}
 .form-note{font-size:11px;line-height:1.45}
-@media(max-width:650px){
+@media(max-width:767px){
     .form-box{max-width:none}
-    .form-row,.rating-row{grid-template-columns:1fr}
+    .parent-assessment-grid,
+    .rating-row{grid-template-columns:minmax(0,1fr)!important;gap:10px!important}
     .form-group label{min-height:0}
-    .rating-item{min-height:auto}
+    .parent-assessment-card,
+    .rating-item{min-height:auto!important;padding:11px!important}
+    .parent-assessment-card select,
+    .rating-item select{min-height:46px!important;font-size:14px!important}
+    .form-submit{min-height:48px!important}
 }
 
 
@@ -644,7 +764,7 @@ footer li{margin-bottom:7px}
 
 
 .header-logo img, .brand-logo img, .site-logo img, .logo-img {
-    content:url("Logo.jpeg");
+    content:url("/Logo.jpeg");
     object-fit:contain;
 }
 
@@ -1039,10 +1159,14 @@ header .logo-text h1 {
         border-radius: 16px !important;
     }
 
-    .form-row,
-    .rating-row {
+    .form-row {
         grid-template-columns: 1fr !important;
         gap: 0 !important;
+    }
+    .parent-assessment-grid,
+    .rating-row {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 10px !important;
     }
 
     .form-group {
@@ -1497,7 +1621,7 @@ src="https://www.facebook.com/tr?id=1085500324166353&ev=PageView&noscript=1"
 <header class="navbar">
     <div class="container nav-inner">
         <a href="#home" class="logo">
-            <img src="Logo.jpeg" alt="Narayana Tutorial Logo" class="logo-icon-img">
+            <img src="/Logo.jpeg" alt="Narayana Tutorial Logo" class="logo-icon-img">
             <div class="logo-text">
                 <strong>NARAYANA TUTORIAL</strong>
                 <span>Quality Education • Personal Attention • Strong Foundation</span>
@@ -1540,7 +1664,7 @@ src="https://www.facebook.com/tr?id=1085500324166353&ev=PageView&noscript=1"
 
         <div class="hero-card">
             <div class="hero-card-top">
-                <img src="hero-illustration.png" alt="NARAYANA TUTORIAL teaching illustration" class="hero-logo">
+                <img src="/hero-illustration.png" alt="NARAYANA TUTORIAL teaching illustration" class="hero-logo">
                 <h3>Give Your Child the Right Guidance</h3>
                 <p>Strong concepts today. Better confidence tomorrow.</p>
                 <div class="experience-mini">⭐ 16+ YEARS OF TEACHING EXPERIENCE</div>
@@ -1992,7 +2116,7 @@ src="https://www.facebook.com/tr?id=1085500324166353&ev=PageView&noscript=1"
                 <h3>Enquire Now</h3>
                 <p>Fill the form. We will contact you regarding your child's tuition requirements.</p>
 
-                <form id="enquiryForm">
+                <form id="enquiryForm" novalidate>
                     <div class="form-row">
                         <div class="form-group"><label for="parentName">Parent / Guardian Name *</label><input id="parentName" name="Parent Name" type="text" placeholder="Enter parent name" required></div>
                         <div class="form-group"><label for="phone">Mobile Number *</label><input id="phone" name="Mobile Number" type="tel" inputmode="numeric" maxlength="10" pattern="[0-9]{10}" placeholder="10-digit mobile number" required></div>
@@ -2058,25 +2182,91 @@ src="https://www.facebook.com/tr?id=1085500324166353&ev=PageView&noscript=1"
                     </div>
 
                     <div class="rating-title">📊 Parent Assessment of Your Child</div>
-                    <p style="font-size:11px;color:#667085;margin-bottom:10px">Please select how you would rate your child in each area.</p>
+                    <p style="font-size:12px;color:#667085;margin-bottom:12px">Please rate your child across all 8 skill areas below (All categories are mandatory <span class="required-star">*</span>).</p>
 
-                    <div class="rating-row">
-                        <div class="rating-item"><div class="rating-item"><label for="rating_reading">📖 Reading</label></label><select id="rating_reading" name="Reading Rating"><option value="">Select Rating</option><option>Very Poor</option><option>Poor</option><option>Better</option><option>Good</option><option>Average</option><option>Above Average</option><option>Excellent</option><option>Brilliant</option></select></div>
-                        <div class="rating-item"><div class="rating-item"><label for="rating_writing">✍️ Writing</label></label><select id="rating_writing" name="Writing Rating"><option value="">Select Rating</option><option>Very Poor</option><option>Poor</option><option>Better</option><option>Good</option><option>Average</option><option>Above Average</option><option>Excellent</option><option>Brilliant</option></select></div>
-                        <div class="rating-item"><div class="rating-item"><label for="rating_learning">🧠 Learning</label></label><select id="rating_learning" name="Learning Rating"><option value="">Select Rating</option><option>Very Poor</option><option>Poor</option><option>Better</option><option>Good</option><option>Average</option><option>Above Average</option><option>Excellent</option><option>Brilliant</option></select></div>
-                        <div class="rating-item"><div class="rating-item"><label for="rating_listening">👂 Listening</label></label><select id="rating_listening" name="Listening Rating"><option value="">Select Rating</option><option>Very Poor</option><option>Poor</option><option>Better</option><option>Good</option><option>Average</option><option>Above Average</option><option>Excellent</option><option>Brilliant</option></select></div>
-                        <div class="rating-item"><div class="rating-item"><label for="rating_understanding">💡 Understanding</label></label><select id="rating_understanding" name="Understanding Rating"><option value="">Select Rating</option><option>Very Poor</option><option>Poor</option><option>Better</option><option>Good</option><option>Average</option><option>Above Average</option><option>Excellent</option><option>Brilliant</option></select></div>
-                        <div class="rating-item"><div class="rating-item"><label for="rating_participation">🙋 Active Participation</label></label><select id="rating_participation" name="Active Participation Rating"><option value="">Select Rating</option><option>Very Poor</option><option>Poor</option><option>Better</option><option>Good</option><option>Average</option><option>Above Average</option><option>Excellent</option><option>Brilliant</option></select></div>
-                        <div class="rating-item"><div class="rating-item"><label for="rating_punctuality">⏰ Punctuality</label></label><select id="rating_punctuality" name="Punctuality Rating"><option value="">Select Rating</option><option>Very Poor</option><option>Poor</option><option>Better</option><option>Good</option><option>Average</option><option>Above Average</option><option>Excellent</option><option>Brilliant</option></select></div>
-                        <div class="rating-item"><div class="rating-item"><label for="rating_discipline">⭐ Discipline</label></label><select id="rating_discipline" name="Discipline Rating"><option value="">Select Rating</option><option>Very Poor</option><option>Poor</option><option>Better</option><option>Good</option><option>Average</option><option>Above Average</option><option>Excellent</option><option>Brilliant</option></select></div>
+                    <div class="rating-row parent-assessment-grid" id="parentAssessmentGrid">
+                        <div class="rating-item parent-assessment-card">
+                            <label for="rating_reading">📖 Reading <span class="required-star" aria-hidden="true">*</span></label>
+                            <select id="rating_reading" name="Reading Rating" required aria-required="true">
+                                <option value="">Select Rating</option>
+                                <option>Very Poor</option><option>Poor</option><option>Better</option>
+                                <option>Good</option><option>Average</option><option>Above Average</option>
+                                <option>Excellent</option><option>Brilliant</option>
+                            </select>
+                        </div>
+                        <div class="rating-item parent-assessment-card">
+                            <label for="rating_writing">✍️ Writing <span class="required-star" aria-hidden="true">*</span></label>
+                            <select id="rating_writing" name="Writing Rating" required aria-required="true">
+                                <option value="">Select Rating</option>
+                                <option>Very Poor</option><option>Poor</option><option>Better</option>
+                                <option>Good</option><option>Average</option><option>Above Average</option>
+                                <option>Excellent</option><option>Brilliant</option>
+                            </select>
+                        </div>
+                        <div class="rating-item parent-assessment-card">
+                            <label for="rating_learning">🧠 Learning <span class="required-star" aria-hidden="true">*</span></label>
+                            <select id="rating_learning" name="Learning Rating" required aria-required="true">
+                                <option value="">Select Rating</option>
+                                <option>Very Poor</option><option>Poor</option><option>Better</option>
+                                <option>Good</option><option>Average</option><option>Above Average</option>
+                                <option>Excellent</option><option>Brilliant</option>
+                            </select>
+                        </div>
+                        <div class="rating-item parent-assessment-card">
+                            <label for="rating_listening">👂 Listening <span class="required-star" aria-hidden="true">*</span></label>
+                            <select id="rating_listening" name="Listening Rating" required aria-required="true">
+                                <option value="">Select Rating</option>
+                                <option>Very Poor</option><option>Poor</option><option>Better</option>
+                                <option>Good</option><option>Average</option><option>Above Average</option>
+                                <option>Excellent</option><option>Brilliant</option>
+                            </select>
+                        </div>
+                        <div class="rating-item parent-assessment-card">
+                            <label for="rating_understanding">💡 Understanding <span class="required-star" aria-hidden="true">*</span></label>
+                            <select id="rating_understanding" name="Understanding Rating" required aria-required="true">
+                                <option value="">Select Rating</option>
+                                <option>Very Poor</option><option>Poor</option><option>Better</option>
+                                <option>Good</option><option>Average</option><option>Above Average</option>
+                                <option>Excellent</option><option>Brilliant</option>
+                            </select>
+                        </div>
+                        <div class="rating-item parent-assessment-card">
+                            <label for="rating_participation">🙋 Active Participation <span class="required-star" aria-hidden="true">*</span></label>
+                            <select id="rating_participation" name="Active Participation Rating" required aria-required="true">
+                                <option value="">Select Rating</option>
+                                <option>Very Poor</option><option>Poor</option><option>Better</option>
+                                <option>Good</option><option>Average</option><option>Above Average</option>
+                                <option>Excellent</option><option>Brilliant</option>
+                            </select>
+                        </div>
+                        <div class="rating-item parent-assessment-card">
+                            <label for="rating_punctuality">⏰ Punctuality <span class="required-star" aria-hidden="true">*</span></label>
+                            <select id="rating_punctuality" name="Punctuality Rating" required aria-required="true">
+                                <option value="">Select Rating</option>
+                                <option>Very Poor</option><option>Poor</option><option>Better</option>
+                                <option>Good</option><option>Average</option><option>Above Average</option>
+                                <option>Excellent</option><option>Brilliant</option>
+                            </select>
+                        </div>
+                        <div class="rating-item parent-assessment-card">
+                            <label for="rating_discipline">⭐ Discipline <span class="required-star" aria-hidden="true">*</span></label>
+                            <select id="rating_discipline" name="Discipline Rating" required aria-required="true">
+                                <option value="">Select Rating</option>
+                                <option>Very Poor</option><option>Poor</option><option>Better</option>
+                                <option>Good</option><option>Average</option><option>Above Average</option>
+                                <option>Excellent</option><option>Brilliant</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="form-group" style="margin-top:14px">
-                        <label for="additional">Any Additional Information</label>
-                        <textarea id="additional" name="Additional Information" rows="2" placeholder="Tell us about your child's learning requirements"></textarea>
+                    <div class="form-group additional-info-group" style="margin-top:16px">
+                        <label for="additional">Any Additional Information <span class="optional-label" style="font-weight:normal;color:#667085;font-size:12px">(optional)</span></label>
+                        <textarea id="additional" name="Additional Information" rows="3" placeholder="Tell us about your child's learning requirements, academic goals, or specific subject needs"></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-orange form-submit">🎯 SUBMIT ENQUIRY</button>
+                    <div id="enquiryValidationAlert" class="enquiry-validation-alert" role="alert" aria-live="assertive" style="display:none;"></div>
+
+                    <button type="submit" class="btn btn-orange form-submit" id="enquirySubmitBtn">🎯 SUBMIT ENQUIRY</button>
                     <p class="form-note">Your information will be used only to contact you regarding the tuition enquiry.</p>
                 </form>
             </div>
@@ -2143,27 +2333,148 @@ const PHONE_NUMBER = "919618328100";
 // Google Apps Script Web App URL
 const googleScriptUrl = "https://script.google.com/macros/s/AKfycbzgRcI4h3nPTkg6Y_FtNyaN8011ZDp0kPuNb5alee5xIewQQEG_DQUM2Yqc_77lcsRe/exec";
 
+const VALID_RATINGS_LIST = [
+    "Very Poor", "Poor", "Better", "Good",
+    "Average", "Above Average", "Excellent", "Brilliant"
+];
+
+const SKILL_CATEGORIES = [
+    { id: "rating_reading", name: "Reading Rating", label: "Reading" },
+    { id: "rating_writing", name: "Writing Rating", label: "Writing" },
+    { id: "rating_learning", name: "Learning Rating", label: "Learning" },
+    { id: "rating_listening", name: "Listening Rating", label: "Listening" },
+    { id: "rating_understanding", name: "Understanding Rating", label: "Understanding" },
+    { id: "rating_participation", name: "Active Participation Rating", label: "Active Participation" },
+    { id: "rating_punctuality", name: "Punctuality Rating", label: "Punctuality" },
+    { id: "rating_discipline", name: "Discipline Rating", label: "Discipline" }
+];
+
+const REQUIRED_BASIC_FIELDS = [
+    { id: "parentName", label: "Parent / Guardian Name" },
+    { id: "phone", label: "Mobile Number", validate: function(v) { return /^[0-9]{10}$/.test(v.replace(/\D/g, "")); } },
+    { id: "studentName", label: "Student Name" },
+    { id: "studentClass", label: "Class" },
+    { id: "board", label: "Board / Stream" },
+    { id: "school", label: "School / College Name" },
+    { id: "studentLocation", label: "Student Location" },
+    { id: "colony", label: "Colony / Area" }
+];
+
+// Interactive live clearing of error highlights
+document.querySelectorAll('#enquiryForm input, #enquiryForm select, #enquiryForm textarea').forEach(function(el) {
+    function clearErr() {
+        el.classList.remove('field-error-input');
+        var card = el.closest('.parent-assessment-card, .rating-item, .form-group');
+        if (card) card.classList.remove('field-error');
+        var alertBox = document.getElementById('enquiryValidationAlert');
+        if (alertBox && !document.querySelector('.field-error-input')) {
+            alertBox.style.display = 'none';
+        }
+    }
+    el.addEventListener('input', clearErr);
+    el.addEventListener('change', clearErr);
+});
+
+var isSubmittingEnquiry = false;
+
 document.getElementById('enquiryForm').addEventListener('submit', async function(e) {
     e.preventDefault();
 
-    const form = e.target;
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const whatsappNumber = PHONE_NUMBER;
+    if (isSubmittingEnquiry) return;
 
-    if (!/^[0-9]{10,15}$/.test(whatsappNumber.replace(/\D/g, ""))) {
-        alert("Please update PHONE_NUMBER in the HTML before using the enquiry form.");
+    var form = e.target;
+    var submitBtn = document.getElementById('enquirySubmitBtn') || form.querySelector('button[type="submit"]');
+    var alertBox = document.getElementById('enquiryValidationAlert');
+
+    // Reset previous errors
+    document.querySelectorAll('.field-error').forEach(function(el) { el.classList.remove('field-error'); });
+    document.querySelectorAll('.field-error-input').forEach(function(el) { el.classList.remove('field-error-input'); });
+    if (alertBox) {
+        alertBox.style.display = 'none';
+        alertBox.innerHTML = '';
+    }
+
+    var missingBasics = [];
+    var missingSkills = [];
+    var firstInvalidEl = null;
+
+    // 1. Validate basic required fields
+    REQUIRED_BASIC_FIELDS.forEach(function(f) {
+        var el = document.getElementById(f.id);
+        var val = el ? el.value.trim() : "";
+        var invalid = !val || (f.validate && !f.validate(val));
+        if (invalid) {
+            missingBasics.push(f.label);
+            if (el) {
+                el.classList.add('field-error-input');
+                var grp = el.closest('.form-group');
+                if (grp) grp.classList.add('field-error');
+                if (!firstInvalidEl) firstInvalidEl = el;
+            }
+        }
+    });
+
+    // 2. Validate all 8 mandatory skill ratings
+    SKILL_CATEGORIES.forEach(function(cat) {
+        var el = document.getElementById(cat.id);
+        var val = el ? el.value.trim() : "";
+        if (!val || VALID_RATINGS_LIST.indexOf(val) === -1) {
+            missingSkills.push(cat.label);
+            if (el) {
+                el.classList.add('field-error-input');
+                var card = el.closest('.parent-assessment-card, .rating-item');
+                if (card) card.classList.add('field-error');
+                if (!firstInvalidEl) firstInvalidEl = el;
+            }
+        }
+    });
+
+    // If validation fails, halt submission immediately
+    if (missingSkills.length > 0 || missingBasics.length > 0) {
+        var alertHtml = '<strong>⚠️ Please complete all required information before submitting:</strong><ul>';
+        if (missingSkills.length === 8) {
+            alertHtml += '<li><strong>Please complete all 8 skill assessment ratings before submitting your enquiry.</strong></li>';
+        } else if (missingSkills.length > 0) {
+            alertHtml += '<li>Missing skill ratings (' + missingSkills.length + ' of 8): <em>' + missingSkills.join(', ') + '</em></li>';
+        }
+        if (missingBasics.length > 0) {
+            alertHtml += '<li>Missing student/contact details: ' + missingBasics.join(', ') + '</li>';
+        }
+        alertHtml += '</ul>';
+
+        if (alertBox) {
+            alertBox.innerHTML = alertHtml;
+            alertBox.style.display = 'block';
+        }
+
+        if (firstInvalidEl) {
+            firstInvalidEl.focus();
+            try {
+                firstInvalidEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } catch (_) {}
+        }
         return;
     }
 
+    // All mandatory fields and ratings are valid!
+    var whatsappNumber = (typeof PHONE_NUMBER !== 'undefined' && PHONE_NUMBER) ? PHONE_NUMBER : '919246524673';
+
+    isSubmittingEnquiry = true;
     if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerText = "Submitting...";
+        submitBtn.innerText = "Submitting Enquiry...";
     }
 
-    const getVal = id => document.getElementById(id)?.value.trim() || "";
-    const getByName = name => document.querySelector(`[name="${name}"]`)?.value.trim() || "";
+    var getVal = function(id) {
+        var el = document.getElementById(id);
+        return el ? el.value.trim() : "";
+    };
+    var getByName = function(name) {
+        var el = document.querySelector('[name="' + name + '"]');
+        return el ? el.value.trim() : "";
+    };
 
-    const payload = {
+    var payload = {
         source: "Website Form",
         parent_name: getVal('parentName'),
         mobile_number: getVal('phone'),
@@ -2188,85 +2499,77 @@ document.getElementById('enquiryForm').addEventListener('submit', async function
         additional_info: getVal('additional')
     };
 
-    const message = `*New Student Enquiry - Narayana Tutorial*
-----------------------------------
-*Student Name:* ${payload.student_name || 'N/A'}
-*Class / Grade:* ${payload.class_grade || 'N/A'}
-*Board:* ${payload.board || 'N/A'}
-*School:* ${payload.school_name || 'N/A'}
-*Subjects:* ${payload.subjects || 'N/A'}
-*Batch:* ${payload.preferred_batch || 'N/A'}
-*Parent Name:* ${payload.parent_name || 'N/A'}
-*Mobile:* ${payload.mobile_number || 'N/A'}
-*Location:* ${payload.colony_area || 'N/A'}, ${payload.student_location || ''}
-*Address:* ${payload.complete_address || 'N/A'}
+    var message = "*New Student Enquiry - Narayana Tutorial*\n" +
+"----------------------------------\n" +
+"*Student Name:* " + (payload.student_name || 'N/A') + "\n" +
+"*Class / Grade:* " + (payload.class_grade || 'N/A') + "\n" +
+"*Board:* " + (payload.board || 'N/A') + "\n" +
+"*School:* " + (payload.school_name || 'N/A') + "\n" +
+"*Subjects:* " + (payload.subjects || 'N/A') + "\n" +
+"*Batch:* " + (payload.preferred_batch || 'N/A') + "\n" +
+"*Parent Name:* " + (payload.parent_name || 'N/A') + "\n" +
+"*Mobile:* " + (payload.mobile_number || 'N/A') + "\n" +
+"*Location:* " + (payload.colony_area || 'N/A') + ", " + (payload.student_location || '') + "\n" +
+"*Address:* " + (payload.complete_address || 'N/A') + "\n\n" +
+"*Parent Skill Assessment (All 8 Completed):*\n" +
+"- 📖 Reading: " + payload.rating_reading + "\n" +
+"- ✍️ Writing: " + payload.rating_writing + "\n" +
+"- 🧠 Learning: " + payload.rating_learning + "\n" +
+"- 👂 Listening: " + payload.rating_listening + "\n" +
+"- 💡 Understanding: " + payload.rating_understanding + "\n" +
+"- 🙋 Active Participation: " + payload.rating_participation + "\n" +
+"- ⏰ Punctuality: " + payload.rating_punctuality + "\n" +
+"- ⭐ Discipline: " + payload.rating_discipline + "\n\n" +
+"*Additional Information:* " + (payload.additional_info || 'None');
 
-*Skill Self-Assessment:*
-- Reading: ${payload.rating_reading || 'N/A'} | Writing: ${payload.rating_writing || 'N/A'}
-- Learning: ${payload.rating_learning || 'N/A'} | Listening: ${payload.rating_listening || 'N/A'}
-- Understanding: ${payload.rating_understanding || 'N/A'} | Discipline: ${payload.rating_discipline || 'N/A'}
+    var whatsappUrl = "https://api.whatsapp.com/send?phone=" + whatsappNumber + "&text=" + encodeURIComponent(message);
 
-*Remarks:* ${payload.additional_info || 'None'}`;
-
-    const whatsappUrl =
-        `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
-
-    // Keep the existing WhatsApp functionality.
+    // Open WhatsApp
     window.open(whatsappUrl, '_blank');
 
     try {
-        /*
-          Keep the existing Google Apps Script/no-cors setup.
-          The response body cannot be read cross-origin, but the request
-          is completed before the page redirects.
-        */
-        // Forward to backend platform API if available
+        // Forward to backend platform API
         try {
             await fetch("/api/enquiries", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(payload)
             });
-        } catch(err) {
-            console.warn("Backend API dispatch:", err);
+        } catch(apiErr) {
+            console.warn("Backend API dispatch:", apiErr);
         }
-        // Also dispatch to Google Script if live
-        fetch(googleScriptUrl, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'text/plain'
-            },
-            body: JSON.stringify(payload),
-            keepalive: true
-        });
 
-        /*
-          IMPORTANT:
-          Lead is fired here, not on thank-you.html.
-          Therefore opening/reloading thank-you.html will not create
-          another Meta Lead.
-        */
+        // Also dispatch to Google Apps Script if configured
+        var googleScriptUrl = typeof GOOGLE_SCRIPT_URL !== 'undefined' ? GOOGLE_SCRIPT_URL : '';
+        if (googleScriptUrl) {
+            try {
+                fetch(googleScriptUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: JSON.stringify(payload),
+                    keepalive: true
+                });
+            } catch(scriptErr) {
+                console.warn("Google script dispatch:", scriptErr);
+            }
+        }
+
         if (typeof fbq === 'function') {
             fbq('track', 'Lead');
         }
 
         sessionStorage.setItem('narayana_enquiry_submitted', '1');
-
         window.location.href = "thank-you.html";
 
     } catch (error) {
-        console.error('Google Sheet submission error:', error);
-
+        console.error('Enquiry dispatch error:', error);
+        isSubmittingEnquiry = false;
         if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.innerText = "🎯 SUBMIT ENQUIRY";
         }
-
-        alert(
-            "We could not complete the enquiry submission. " +
-            "Please try again. If the problem continues, contact Narayana Tutorial."
-        );
+        alert("We could not complete the enquiry submission. Please try again or contact Narayana Tutorial directly.");
     }
 });
 </script>
